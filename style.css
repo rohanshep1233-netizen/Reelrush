@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+    overflow-x: hidden;
+    transition: all 0.4s;
+}
+body.light-mode {
+    background: #f8f9fa;
+    color: #222;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+.navbar h1 {
+    font-size: 28px;
+    color: #ff0055;
+}
+.nav-links a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.nav-links a:hover { color: #ff0055; }
+.dark-toggle {
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1611162617474-56c0b4fdfbb4?w=1920') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.hero-content h1 {
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+.hero-content span { color: #ff0055; }
+.hero-content p { font-size: 22px; margin-bottom: 30px; }
+.btn {
+    background: #ff0055;
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.btn:hover { background: #cc0044; transform: scale(1.1); }
+
+/* General Sections */
+section {
+    padding: 100px 50px;
+    text-align: center;
+}
+h2 {
+    font-size: 50px;
+    margin-bottom: 60px;
+    color: #ff0055;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Cards */
+.card, .reel, .review, .package {
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 20px;
+    transition: 0.5s;
+    backdrop-filter: blur(10px);
+}
+.card:hover, .reel:hover, .review:hover, .package:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(255,0,85,0.2);
+}
+.card i { font-size: 50px; color: #ff0055; margin-bottom: 20px; }
+
+/* Reels */
+.reel iframe {
+    width: 100%;
+    height: 500px;
+    border-radius: 15px;
+}
+.description {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #aaa;
+}
+.description:empty { display: none; }
+
+/* Pricing */
+.pricing-table { gap: 50px; }
+.package h3 { font-size: 28px; margin-bottom: 15px; }
+.price { font-size: 40px; color: #ff0055; margin: 20px 0; }
+.package ul { list-style: none; margin: 20px 0; }
+.package ul li { padding: 8px 0; }
+.popular { border: 3px solid #ff0055; transform: scale(1.05); }
+
+/* Reviews */
+.review img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+.review-text { font-style: italic; margin-top: 10px; }
+
+/* Contact */
+.contact form {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.contact input, .contact textarea {
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    font-size: 16px;
+}
+.contact input::placeholder, .contact textarea::placeholder { color: #aaa; }
+
+/* WhatsApp Float */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25d366;
+    color: white;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    z-index: 1000;
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Back to Top */
+.back-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background: #ff0055;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    z-index: 999;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 45px; }
+    .navbar { padding: 15px; flex-direction: column; }
+    .nav-links { margin-top: 15px; }
+    .nav-links a { margin: 0 10px; font-size: 14px; }
+    section { padding: 80px 20px; }
+    h2 { font-size: 38px; }
+    .reel iframe { height: 400px; }
+}
+/* Instagram jaisa bilkul perfect card design */
+.instagram-reel {
+    width: 100%;
+    height: 600px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(255, 0, 85, 0.2);
+}
+
+.reel {
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all 0.4s;
+}
+
+.reel:hover {
+    transform: translateY(-10px);
+}
+
+/* Mobile ke liye perfect */
+@media (max-width: 768px) {
+    .instagram-reel {
+        height: 500px;
+    }
+}
+.reel-caption {
+    margin-top: 12px;
+    font-size: 15px;
+    color: #ff5588;
+    text-align: center;
+    font-weight: 500;
+    padding: 0 15px;
+    line-height: 1.5;
+}
+/* SAB REELS KA SAME CARD DESIGN */
+.reel-card {
+    max-width: 420px;
+    width: 100%;
+    margin: 30px auto;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(255, 0, 85, 0.25);
+    background: #000;
+    transition: transform 0.4s;
+}
+.reel-card:hover {
+    transform: translateY(-12px);
+}
+
+/* Instagram embed ko perfect Instagram ratio */
+.instagram-media {
+    width: 100% !important;
+    aspect-ratio: 9 / 16 !important;   /* exact Instagram reel ratio */
+    border-radius: 28px !important;
+    overflow: hidden !important;
+}
+
+/* Local video ko bhi exact same ratio */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 177.78%; /* 9:16 ratio (100 / 9 * 16) */
+    background: #000;
+    border-radius: 28px;
+    overflow: hidden;
+}
+.video-wrapper video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 28px;
+}
+
+/* Caption */
+.reel-caption {
+    margin-top: 14px;
+    font-size: 15px;
+    color: #ff5588;
+    text-align: center;
+    font-weight: 500;
+    padding: 0 10px;
+}
+/* ============================================= */
+/* REELRUSH - FINAL PORTFOLIO CARD DESIGN        */
+/* Instagram + Local Videos = SAME LOOK          */
+/* ============================================= */
+
+.reel-card {
+    max-width: 420px;
+    width: 100%;
+    margin: 30px auto;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(255, 0, 85, 0.25);
+    background: #000;
+    transition: all 0.4s ease;
+}
+.reel-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(255, 0, 85, 0.35);
+}
+
+/* Instagram embed ko perfect 9:16 ratio */
+.instagram-media {
+    width: 100% !important;
+    aspect-ratio: 9 / 16 !important;
+    border-radius: 28px !important;
+    overflow: hidden !important;
+    display: block !important;
+}
+
+/* Local video ko bilkul same Instagram card jaisa */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 177.78%; /* 9:16 ratio = 100/9 × 16 */
+    background: #000;
+    border-radius: 28px;
+    overflow: hidden;
+}
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 28px;
+}
+
+/* Description text */
+.reel-caption {
+    margin-top: 16px;
+    font-size: 15px;
+    color: #ff5588;
+    text-align: center;
+    font-weight: 500;
+    padding: 0 15px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* Mobile pe bhi perfect */
+@media (max-width: 768px) {
+    .reel-card {
+        max-width: 360px;
+        margin: 25px auto;
+    }
+    .reel-caption {
+        font-size: 14px;
+    }
+}
