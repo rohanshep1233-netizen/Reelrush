@@ -7,12 +7,23 @@ const myReels = [
     // === INSTAGRAM REELS (normal link daalo) ===
     {
         type: "instagram",
-        link: "https://www.instagram.com/reel/DPBoGlCDIkj/",
+        link: "https://www.instagram.com/reel/DRrYc7qjc7t/?igsh=cDM2MWVsdHljcW9",
         description: "Fashion brand campaign – 2M+ views in 24 hours"
     },
     {
         type: "instagram",
-        link: "https://www.instagram.com/reel/DRbFmm8CPVf/",
+        link: "https://www.instagram.com/reel/DRmagTrE-th/?igsh=ZGZ2cHZqeGx3OG9",
+        description: "Food reel with trending transition – viral hit"
+
+    },
+    { 
+        type: "instagram",
+        link: "https://www.instagram.com/reel/DQ0-2zvDDoi/?igsh=MTRrZmZjZGRoaG8wNg==",
+        description: "Food reel with trending transition – viral hit"
+    },
+    {    
+        type: "instagram",
+        link: "https://www.instagram.com/reel/DQ0-2zvDDoi/?igsh=MTRrZmZjZGRoaG8wNg==",
         description: "Food reel with trending transition – viral hit"
     },
 
@@ -20,18 +31,55 @@ const myReels = [
     // Sirf file ko assets/videos/ folder mein daalo aur yaha add karo
     {
         type: "local",
-        link: "assets/videos/client-gym.mp4",
+        link: "assets/videos/rohan1.mp4",
         description: "Gym transformation reel – private client work"
     },
     {
         type: "local",
-        link: "assets/videos/wedding-highlights.mp4",
+        link: "assets/videos/rohan2.mp4",
         description: "Wedding surprise reel – premium project"
     },
     {
         type: "local",
-        link: "assets/videos/birthday-special.mp4",
+        link: "assets/videos/rohan3.mp4",
         description: "Birthday montage – not public"
+    },
+
+    // === TERE ASSETS FOLDER KE SAB VIDEOS ADD KAR DIYE (screenshot se) ===
+    {
+        type: "local",
+        link:  "assets/videos/rohan1.mp4",
+        description: "Car edit – cinematic transition"
+    },
+    {
+        type: "local",
+        link:  "assets/videos/rohan2.mp4",
+        description: "Car reel – high energy"
+    },
+    {
+        type: "local",
+        link:  "assets/videos/rohan3.mp4",
+        description: "StorysByHarry – client reel"
+    },
+    {
+        type: "local",
+        link:  "assets/videos/rohan4.mp4",
+        description: "Cinematic portrait reel"
+    },
+    {
+        type: "local",
+        link:  "assets/videos/rohan5.mp4",
+        description: "Portrait transition reel"
+    },
+    {
+        type: "local",
+        link:  "assets/videos/rohan6.mp4",
+        description: "Nature vibe reel"
+    },
+    {
+        type: "local",
+        link:  "assets/videos/rohan7.mp4",
+        description: "Sunset transition edit"
     }
 
     // === YAHAN SE TUM APNE NAYE REELS ADD KARTE JAO ===
