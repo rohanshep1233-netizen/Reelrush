@@ -1,10 +1,10 @@
 // ===============================================
-// REELRUSH PORTFOLIO - FINAL COMPLETE reels.js
-// Instagram + Local Videos + Same Card Design + Description
+// REELRUSH PORTFOLIO - INSTAGRAM ONLY reels.js
+// Local videos + thumbnail generator COMPLETELY removed
 // ===============================================
 
 const myReels = [
-    // === INSTAGRAM REELS (normal link daalo) ===
+    // === INSTAGRAM REELS ONLY ===
     {
         type: "instagram",
         link: "https://www.instagram.com/reel/DRrYc7qjc7t/?igsh=cDM2MWVsdHljcW9",
@@ -14,80 +14,17 @@ const myReels = [
         type: "instagram",
         link: "https://www.instagram.com/reel/DRmagTrE-th/?igsh=ZGZ2cHZqeGx3OG9",
         description: "Food reel with trending transition – viral hit"
-
     },
-    { 
+    {
         type: "instagram",
         link: "https://www.instagram.com/reel/DQ0-2zvDDoi/?igsh=MTRrZmZjZGRoaG8wNg==",
         description: "Food reel with trending transition – viral hit"
     },
-    {    
+    {
         type: "instagram",
         link: "https://www.instagram.com/reel/DQ0-2zvDDoi/?igsh=MTRrZmZjZGRoaG8wNg==",
         description: "Food reel with trending transition – viral hit"
-    },
-
-    // === LOCAL VIDEOS (jo Instagram pe nahi hai) ===
-    // Sirf file ko assets/videos/ folder mein daalo aur yaha add karo
-    {
-        type: "local",
-        link: "assets/videos/rohan1.mp4",
-        description: "Gym transformation reel – private client work"
-    },
-    {
-        type: "local",
-        link: "assets/videos/rohan2.mp4",
-        description: "Wedding surprise reel – premium project"
-    },
-    {
-        type: "local",
-        link: "assets/videos/rohan3.mp4",
-        description: "Birthday montage – not public"
-    },
-
-    // === TERE ASSETS FOLDER KE SAB VIDEOS ADD KAR DIYE (screenshot se) ===
-    {
-        type: "local",
-        link:  "assets/videos/rohan1.mp4",
-        description: "Car edit – cinematic transition"
-    },
-    {
-        type: "local",
-        link:  "assets/videos/rohan2.mp4",
-        description: "Car reel – high energy"
-    },
-    {
-        type: "local",
-        link:  "assets/videos/rohan3.mp4",
-        description: "StorysByHarry – client reel"
-    },
-    {
-        type: "local",
-        link:  "assets/videos/rohan4.mp4",
-        description: "Cinematic portrait reel"
-    },
-    {
-        type: "local",
-        link:  "assets/videos/rohan5.mp4",
-        description: "Portrait transition reel"
-    },
-    {
-        type: "local",
-        link:  "assets/videos/rohan6.mp4",
-        description: "Nature vibe reel"
-    },
-    {
-        type: "local",
-        link:  "assets/videos/rohan7.mp4",
-        description: "Sunset transition edit"
     }
-
-    // === YAHAN SE TUM APNE NAYE REELS ADD KARTE JAO ===
-    // Instagram wala
-    // { type: "instagram", link: "https://www.instagram.com/reel/XXXXX/", description: "Tumhara description" },
-    
-    // Local video wala
-    // { type: "local", link: "assets/videos/new-video.mp4", description: "Naya private reel" }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -98,27 +35,22 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = document.createElement("div");
         card.className = "reel-card";
 
-        if (item.type === "instagram") {
-            // Original Instagram card
-            card.innerHTML = `
-                <blockquote class="instagram-media" data-instgrm-permalink="${item.link}" data-instgrm-version="14">
-                    <a href="${item.link}">Instagram</a>
-                </blockquote>
-                <p class="reel-caption">${item.description}</p>
-            `;
-        } else {
-            // Local video — bilkul same Instagram card jaisa design
-            card.innerHTML = `
-                <div class="video-wrapper">
-                    <video controls preload="metadata" poster="">
-                        <source src="${item.link}" type="video/mp4">
-                        Your browser does not support video.
-                    </video>
-                </div>
-                <p class="reel-caption">${item.description}</p>
-            `;
-        }
+        // Only Instagram reels now
+        card.innerHTML = `
+            <blockquote class="instagram-media" data-instgrm-permalink="${item.link}" data-instgrm-version="14">
+                <a href="${item.link}">View on Instagram</a>
+            </blockquote>
+            <p class="reel-caption">${item.description}</p>
+        `;
 
         grid.appendChild(card);
     });
+
+    // Instagram embed script load only once
+    if (!window.instgrm) {
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = "https://www.instagram.com/embed.js";
+        document.body.appendChild(script);
+    }
 });
