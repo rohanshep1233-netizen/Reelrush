@@ -1,10 +1,8 @@
 // ===============================================
 // REELRUSH PORTFOLIO - INSTAGRAM ONLY reels.js
-// Local videos + thumbnail generator COMPLETELY removed
 // ===============================================
 
 const myReels = [
-    // === INSTAGRAM REELS ONLY ===
     {
         type: "instagram",
         link: "https://www.instagram.com/reel/DRrYc7qjc7t/?igsh=cDM2MWVsdHljcW9",
@@ -35,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = document.createElement("div");
         card.className = "reel-card";
 
-        // Only Instagram reels now
         card.innerHTML = `
             <blockquote class="instagram-media" data-instgrm-permalink="${item.link}" data-instgrm-version="14">
                 <a href="${item.link}">View on Instagram</a>
@@ -46,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
         grid.appendChild(card);
     });
 
-    // Instagram embed script load only once
     if (!window.instgrm) {
         const script = document.createElement("script");
         script.async = true;
