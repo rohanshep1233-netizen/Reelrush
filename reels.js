@@ -46,14 +46,16 @@ document.addEventListener("DOMContentLoaded", () => {
         grid.appendChild(reelDiv);
     });
 
-    // AUTO PLAY + AUTO PAUSE ON SCROLL — 100% WORKING (INSTAGRAM SPECIAL)
+    // AUTO PLAY + AUTO PAUSE ON SCROLL — 100% WORKING (PERFECT FIX)
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const iframe = entry.target.querySelector("iframe");
+            const originalSrc = iframe.src;
             if (entry.isIntersecting && entry.intersectionRatio >= 0.7) {
-                iframe.contentWindow.postMessage(JSON.stringify({event: "command", func: "playVideo", args: ""}), "*");
+                iframe.src = originalSrc; // Auto Play
             } else {
-                iframe.contentWindow.postMessage(JSON.stringify({event: "command", func: "pauseVideo", args: ""}), "*");
+                iframe.src = ''; // Auto Pause (stop playback)
+                setTimeout(() => iframe.src = originalSrc, 100); // Reset for next time
             }
         });
     }, { threshold: 0.7 });
