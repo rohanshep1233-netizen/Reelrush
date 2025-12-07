@@ -8,13 +8,6 @@ const myReels = [
     { link: "https://www.instagram.com/reel/DR7PdsdjCT2/", description: "Car reel – cinematic shots" },
     { link: "https://www.instagram.com/reel/DRZh1AuDF9C/", description: "Portrait transition masterclass" },
     { link: "https://www.instagram.com/reel/DR7PdsdjCT2/", description: "Premium client car edit" }
-    // ===============================================
-    // NAYA REEL ADD KARNA HO TOH BAS YE FORMAT MEIN ADD KARO
-    // {
-    //     link: "https://www.instagram.com/reel/XXXXXX/",
-    //     description: "Yahan apna description likh do"
-    // },
-    // ===============================================
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,42 +18,25 @@ document.addEventListener("DOMContentLoaded", () => {
         reelDiv.className = "reel-card";
 
         reelDiv.innerHTML = `
-            <div class="reel-container">
-                <iframe 
-                    class="instagram-embed"
-                    src="${item.link}embed/captioned/"
-                    frameborder="0"
-                    allowfullscreen
-                    loading="lazy"
-                    allow="autoplay; encrypted-media"
-                    scrolling="no">
-                </iframe>
-            </div>
-            <div class="reel-overlay">
-                <i class="fab fa-instagram"></i>
-                <span>View on Instagram</span>
+            <div class="reel-wrapper">
+                <img src="${item.link}media/?size=l" class="reel-thumbnail" alt="Reel">
+                <div class="play-icon">▶</div>
+                <iframe class="instagram-embed" src="${item.link}embed/" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
             <p class="reel-description">${item.description}</p>
         `;
 
-        grid.appendChild(reelDiv);
-    });
-
-    // AUTO PLAY + AUTO PAUSE ON SCROLL — 100% WORKING (PERFECT FIX)
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            const iframe = entry.target.querySelector("iframe");
-            const originalSrc = iframe.src;
-            if (entry.isIntersecting && entry.intersectionRatio >= 0.7) {
-                iframe.src = originalSrc; // Auto Play
-            } else {
-                iframe.src = ''; // Auto Pause (stop playback)
-                setTimeout(() => iframe.src = originalSrc, 100); // Reset for next time
-            }
+        // Click pe thumbnail hide + reel play
+        reelDiv.addEventListener("click", () => {
+            const thumbnail = reelDiv.querySelector(".reel-thumbnail");
+            const playIcon = reelDiv.querySelector(".play-icon");
+            const iframe = reelDiv.querySelector(".instagram-embed");
+            
+            thumbnail.style.opacity = "0";
+            playIcon.style.opacity = "0";
+            iframe.style.opacity = "1";
         });
-    }, { threshold: 0.7 });
 
-    document.querySelectorAll(".reel-container").forEach(container => {
-        observer.observe(container);
+        grid.appendChild(reelDiv);
     });
 });
