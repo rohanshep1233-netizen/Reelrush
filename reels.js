@@ -8,6 +8,13 @@ const myReels = [
     { link: "https://www.instagram.com/reel/DR7PdsdjCT2/", description: "Car reel – cinematic shots" },
     { link: "https://www.instagram.com/reel/DRZh1AuDF9C/", description: "Portrait transition masterclass" },
     { link: "https://www.instagram.com/reel/DR7PdsdjCT2/", description: "Premium client car edit" }
+    // ===============================================
+    // NAYA REEL ADD KARNA HO TOH BAS YE FORMAT MEIN ADD KARO
+    // {
+    //     link: "https://www.instagram.com/reel/XXXXXX/",
+    //     description: "Yahan apna description likh do"
+    // },
+    // ===============================================
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -17,22 +24,41 @@ document.addEventListener("DOMContentLoaded", () => {
         const reelDiv = document.createElement("div");
         reelDiv.className = "reel-card";
 
-        // Direct Instagram embed — thumbnail + card + click pe full reel
         reelDiv.innerHTML = `
-            <blockquote class="instagram-media" data-instgrm-permalink="${item.link}" data-instgrm-version="14" style="max-width:540px; width:100%; margin:20px auto;">
-                <a href="${item.link}">Instagram</a>
-            </blockquote>
+            <div class="reel-container">
+                <iframe 
+                    class="instagram-embed"
+                    src="${item.link}embed/captioned/"
+                    frameborder="0"
+                    allowfullscreen
+                    loading="lazy"
+                    allow="autoplay; encrypted-media"
+                    scrolling="no">
+                </iframe>
+            </div>
+            <div class="reel-overlay">
+                <i class="fab fa-instagram"></i>
+                <span>View on Instagram</span>
+            </div>
             <p class="reel-description">${item.description}</p>
         `;
 
         grid.appendChild(reelDiv);
     });
 
-    // Click pe full reel open karne ke liye (new window mein)
-    document.querySelectorAll(".instagram-media a").forEach(link => {
-        link.addEventListener("click", (e) => {
-            e.preventDefault();
-            window.open(link.href, '_blank'); // Full reel new tab mein open
+    // Auto Play/Pause on Scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const iframe = entry.target.querySelector("iframe");
+            if (entry.isIntersecting) {
+                iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":[]}', '*');
+            } else {
+                iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":[]}', '*');
+            }
         });
+    }, { threshold: 0.7 });
+
+    document.querySelectorAll(".reel-container").forEach(container => {
+        observer.observe(container);
     });
 });
