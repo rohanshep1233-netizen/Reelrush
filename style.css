@@ -325,4 +325,54 @@ h2 {
     content: "Play";
     font-size: 70px;
     opacity: 0.7;
+}.reel-wrapper {
+    position: relative;
+    aspect-ratio: 9/16;
+    background: #000;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.reel-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.big-play {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    color: white;
+    background: rgba(0,0,0,0.7);
+}
+
+.no-thumb .big-play {
+    display: flex !important;
+}
+
+.play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 60px;
+    color: white;
+    text-shadow: 0 0 30px rgba(0,0,0,0.9);
+    pointer-events: none;
+    transition: opacity 0.4s;
+}
+
+.no-thumb .play-btn {
+    display: none; /* jab thumbnail na ho tab chhota button chhup jaye */
+}
+
+.ig-embed {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
 }
