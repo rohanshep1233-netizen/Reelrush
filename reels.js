@@ -1,56 +1,36 @@
-// ===============================================
-// REELRUSH PORTFOLIO - INSTAGRAM ONLY reels.js
-// Local videos + thumbnail generator COMPLETELY removed
-// ===============================================
-
 const myReels = [
-    // === INSTAGRAM REELS ONLY ===
     {
         type: "instagram",
-        link: "https://www.instagram.com/reel/DRrYc7qjc7t/?igsh=cDM2MWVsdHljcW9",
-        description: "Fashion brand campaign – 2M+ views in 24 hours"
+        link: "https://www.instagram.com/reel/DRbFmm8CPVf/",
+        description: "High-energy fashion reel with trending transition"
     },
     {
         type: "instagram",
-        link: "https://www.instagram.com/reel/DRmagTrE-th/?igsh=ZGZ2cHZqeGx3OG9",
-        description: "Food reel with trending transition – viral hit"
+        link: "https://www.instagram.com/reel/DRrYc7qjc7t/",
+        description: "Food reel with smooth cuts & trending sound"
     },
     {
         type: "instagram",
-        link: "https://www.instagram.com/reel/DQ0-2zvDDoi/?igsh=MTRrZmZjZGRoaG8wNg==",
-        description: "Food reel with trending transition – viral hit"
-    },
-    {
-        type: "instagram",
-        link: "https://www.instagram.com/reel/DQ0-2zvDDoi/?igsh=MTRrZmZjZGRoaG8wNg==",
-        description: "Food reel with trending transition – viral hit"
+        link: "https://www.instagram.com/reel/DQ0-2zvDDoi/",
+        description: "Client testimonial reel – went viral in 24 hours"
     }
+    // aur jitne chahiye add karte jao
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector("#portfolio .grid");
-    if (!grid) return;
 
     myReels.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "reel-card";
+        const div = document.createElement("div");
+        div.className = "reel-card";
 
-        // Only Instagram reels now
-        card.innerHTML = `
-            <blockquote class="instagram-media" data-instgrm-permalink="${item.link}" data-instgrm-version="14">
-                <a href="${item.link}">View on Instagram</a>
+        div.innerHTML = `
+            <blockquote class="instagram-media" data-instgrm-permalink="${item.link}" data-instgrm-version="14" style="max-width:540px; width:100%; margin:20px auto;">
+                <a href="${item.link}">Instagram</a>
             </blockquote>
             <p class="reel-caption">${item.description}</p>
         `;
 
-        grid.appendChild(card);
+        grid.appendChild(div);
     });
-
-    // Instagram embed script load only once
-    if (!window.instgrm) {
-        const script = document.createElement("script");
-        script.async = true;
-        script.src = "https://www.instagram.com/embed.js";
-        document.body.appendChild(script);
-    }
 });
