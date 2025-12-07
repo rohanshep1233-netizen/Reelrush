@@ -17,27 +17,32 @@ document.addEventListener("DOMContentLoaded", () => {
         const reelDiv = document.createElement("div");
         reelDiv.className = "reel-card";
 
-        // YE TRICK 100% WORKING HAI — THUMBNAIL + PLAY BUTTON + DESCRIPTION
+        // YE NAYA TRICK HAI — 100% WORKING THUMBNAIL
+        const reelId = item.link.split("/reel/")[1].split("/")[0];
+        const thumbnailUrl = `https://www.instagram.com/p/${reelId}/media/?size=l`;
+
         reelDiv.innerHTML = `
             <div class="reel-wrapper">
-                <img src="${item.link}media/?size=l" class="reel-thumbnail" alt="Instagram Reel">
+                <img src="${thumbnailUrl}" class="reel-thumbnail" alt="Reel thumbnail" onerror="this.style.display='none'">
                 <div class="play-button">
                     <i class="fas fa-play"></i>
                 </div>
-                <iframe 
-                    class="instagram-embed" 
-                    src="${item.link}embed/" 
-                    frameborder="0" 
-                    allowfullscreen 
-                    loading="lazy">
-                </iframe>
+                <div class="instagram-embed-container">
+                    <iframe 
+                        class="instagram-embed" 
+                        src="${item.link}embed/" 
+                        frameborder="0" 
+                        allowfullscreen 
+                        loading="lazy">
+                    </iframe>
+                </div>
             </div>
             <p class="reel-description">${item.description}</p>
         `;
 
-        // Click pe reel play karega
+        // Click pe play
         reelDiv.addEventListener("click", () => {
-            const iframe = reelDiv.querySelector("iframe");
+            const iframe = reelDiv.querySelector(".instagram-embed");
             const thumbnail = reelDiv.querySelector(".reel-thumbnail");
             const playBtn = reelDiv.querySelector(".play-button");
             
