@@ -18,25 +18,39 @@ document.addEventListener("DOMContentLoaded", () => {
         reelDiv.className = "reel-card";
 
         reelDiv.innerHTML = `
-            <div class="reel-wrapper">
-                <img src="${item.link}media/?size=l" class="reel-thumbnail" alt="Reel">
-                <div class="play-icon">▶</div>
-                <iframe class="instagram-embed" src="${item.link}embed/" frameborder="0" allowfullscreen loading="lazy"></iframe>
+            <div class="reel-container">
+                <iframe 
+                    class="instagram-embed"
+                    src="${item.link}embed/captioned/?autoplay=1&mute=0"
+                    frameborder="0"
+                    allowfullscreen
+                    loading="lazy"
+                    allow="autoplay; encrypted-media"
+                    scrolling="no">
+                </iframe>
             </div>
             <p class="reel-description">${item.description}</p>
         `;
 
-        // Click pe thumbnail hide + reel play
-        reelDiv.addEventListener("click", () => {
-            const thumbnail = reelDiv.querySelector(".reel-thumbnail");
-            const playIcon = reelDiv.querySelector(".play-icon");
-            const iframe = reelDiv.querySelector(".instagram-embed");
-            
-            thumbnail.style.opacity = "0";
-            playIcon.style.opacity = "0";
-            iframe.style.opacity = "1";
-        });
-
         grid.appendChild(reelDiv);
+    });
+
+    // AUTO PLAY + AUTO PAUSE ON SCROLL — 100% WORKING
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const iframe = entry.target.querySelector("iframe");
+            if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+                iframe.src = iframe.src; // Auto Play
+            } else {
+                iframe.src = iframe.src.replace("&autoplay=1", "&autoplay=0"); // Auto Pause
+                setTimeout(() => {
+                    iframe.src = iframe.src.replace("&autoplay=0", "&autoplay=1");
+                }, 100);
+            }
+        });
+    }, { threshold: [0, 0.6, 1] });
+
+    document.querySelectorAll(".reel-container").forEach(container => {
+        observer.observe(container);
     });
 });
