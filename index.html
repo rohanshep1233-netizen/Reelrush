@@ -154,34 +154,31 @@
 </section>
 
 <script>
-// 100% WORKING — Form submit → Direct WhatsApp with perfect format
-document.getElementById("whatsapp-form").addEventListener("submit", function(e) {
-    e.preventDefault(); // Page reload nahi hoga
-
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    const text = `Hello ReelRush Team!%0A%0A` +
-                 `Name: ${name}%0A` +
-                 `WhatsApp: ${phone}%0A` +
-                 `Email: ${email}%0A%0A` +
-                 `Message:%0A${message}%0A%0AThank you!`;
-
-    // Tumhara number → 8698245050
-    const whatsappURL = `https://wa.me/918698245050?text=${text}`;
+<!-- Contact Section - ONLY WHATSAPP BUTTON (Direct Chat, No Form, No Loading) -->
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
     
-    // Direct WhatsApp khulega — no loading hang
-    window.open(whatsappURL, '_blank');
-
-    // Form clear ho jayega
-    this.reset();
-    
-    // Optional success message
-    alert("Opening WhatsApp... Message ready to send!");
-});
-</script>
+    <div style="text-align:center; padding:60px 20px;">
+        <p style="font-size:24px; margin-bottom:20px; color:#fff;">
+            Ready to go viral with your reels?
+        </p>
+        <p style="font-size:18px; margin-bottom:50px; color:#ccc;">
+            Message us directly on WhatsApp — fastest response!
+        </p>
+        
+        <!-- MAIN WHATSAPP BUTTON - Direct Chat -->
+        <a href="https://wa.me/918698245050?text=Hello%20ReelRush%20Team!%0A%0AI%20am%20interested%20in%20your%20professional%20Reels%20editing%20services.%0ACan%20we%20discuss%20pricing%20and%20packages%3F%0A%0AThank%20you!" 
+           target="_blank"
+           style="background:#25d366; color:white; padding:20px 50px; border-radius:50px; font-size:24px; text-decoration:none; display:inline-flex; align-items:center; gap:15px; box-shadow:0 10px 30px rgba(37,211,102,0.4);">
+            <i class="fab fa-whatsapp" style="font-size:32px;"></i>
+            Chat on WhatsApp
+        </a>
+        
+        <p style="margin-top:40px; font-size:16px; color:#888;">
+            Or use the floating WhatsApp icon bottom-right →
+        </p>
+    </div>
+</section>
 <!-- Floating WhatsApp Icon -->
 <a href="https://wa.me/918698245050?text=Hello%20ReelRush%20Team%2C%0A%0AI%20am%20interested%20in%20your%20professional%20Reels%20editing%20services.%0ACan%20we%20discuss%20pricing%20and%20packages%3F%0A%0AThank%20you%21" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
