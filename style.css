@@ -503,6 +503,29 @@ h2 {
 
 .instagram-embed {
     width: 100%;
+    .instagram-media {
+    width: 100% !important;
+    aspect-ratio: 9/16 !important;
+    border-radius: 28px !important;
+    overflow: hidden !important;
+    box-shadow: 0 15px 40px rgba(255, 0, 85, 0.3);
+    background: #000;
+}
+
+.reel-description {
+    margin-top: 16px;
+    font-size: 15px;
+    color: #ff5588;
+    text-align: center;
+    font-weight: 600;
+    padding: 0 20px;
+    line-height: 1.5;
+}
+
+.reel-card:hover .instagram-media {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(255, 0, 85, 0.5);
+}
     height: 100%;
     border: none;
     border-radius: 28px;
