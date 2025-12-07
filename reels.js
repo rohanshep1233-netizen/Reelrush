@@ -1,30 +1,13 @@
-// ===============================================
-// FINAL reels.js — SIRF DESCRIPTION ADD KIYA
-// Auto Play/Pause + Thumbnail + Instagram Ratio + BEST UI + DESCRIPTION
-// ===============================================
-
 const myReels = [
-    {
-        link: "https://www.instagram.com/reel/DRbFmm8CPVf/",
-        description: "High-energy fashion reel with trending transition"
-    },
-    {
-        link: "https://www.instagram.com/reel/DRrYc7qjc7t/",
-        description: "Food reel with smooth cuts & trending sound"
-    },
-    {
-        link: "https://www.instagram.com/reel/DQ0-2zvDDoi/",
-        description: "Client testimonial reel – went viral in 24 hours"
-    },
-    {
-        link: "https://www.instagram.com/reel/DRrYc7qjc7t/",
-        description: "Another trending reel with perfect sync"
-    },
-    {
-        link: "https://www.instagram.com/reel/DQ0-2zvDDoi/",
-        description: "Premium client project – cinematic edit"
-    }
-    // aur jitne chahiye add karte jao
+    { link: "https://www.instagram.com/reel/DRrYc7qjc7t/", description: "Fashion reel with trending transition" },
+    { link: "https://www.instagram.com/reel/DRgVzVECHyn/", description: "Food reel – smooth cuts & viral sound" },
+    { link: "https://www.instagram.com/reel/DRmagTrE-th/", description: "Client testimonial reel – 1M+ views" },
+    { link: "https://www.instagram.com/reel/DRbFmm8CPVf/", description: "High energy transition reel" },
+    { link: "https://www.instagram.com/reel/DRZh1AuDF9C/", description: "Cinematic portrait edit" },
+    { link: "https://www.instagram.com/reel/DR7ENcTCKcu/", description: "Nature vibe with trending audio" },
+    { link: "https://www.instagram.com/reel/DR7PdsdjCT2/", description: "Car reel – cinematic shots" },
+    { link: "https://www.instagram.com/reel/DRZh1AuDF9C/", description: "Portrait transition masterclass" },
+    { link: "https://www.instagram.com/reel/DR7PdsdjCT2/", description: "Premium client car edit" }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -34,42 +17,35 @@ document.addEventListener("DOMContentLoaded", () => {
         const reelDiv = document.createElement("div");
         reelDiv.className = "reel-card";
 
+        // YE TRICK 100% WORKING HAI — THUMBNAIL + PLAY BUTTON + DESCRIPTION
         reelDiv.innerHTML = `
-            <div class="reel-container">
+            <div class="reel-wrapper">
+                <img src="${item.link}media/?size=l" class="reel-thumbnail" alt="Instagram Reel">
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
                 <iframe 
-                    class="instagram-embed"
-                    src="${item.link}embed/captioned/"
-                    frameborder="0"
-                    allowfullscreen
-                    loading="lazy"
-                    allow="autoplay; encrypted-media"
-                    scrolling="no">
+                    class="instagram-embed" 
+                    src="${item.link}embed/" 
+                    frameborder="0" 
+                    allowfullscreen 
+                    loading="lazy">
                 </iframe>
             </div>
-            <div class="reel-overlay">
-                <i class="fab fa-instagram"></i>
-                <span>View on Instagram</span>
-            </div>
-            <!-- YE DESCRIPTION ADD KI HAI -->
             <p class="reel-description">${item.description}</p>
         `;
 
-        grid.appendChild(reelDiv);
-    });
-
-    // Auto Play/Pause on Scroll (same as before)
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            const iframe = entry.target.querySelector("iframe");
-            if (entry.isIntersecting) {
-                iframe.src = iframe.src;
-            } else {
-                iframe.src = iframe.src;
-            }
+        // Click pe reel play karega
+        reelDiv.addEventListener("click", () => {
+            const iframe = reelDiv.querySelector("iframe");
+            const thumbnail = reelDiv.querySelector(".reel-thumbnail");
+            const playBtn = reelDiv.querySelector(".play-button");
+            
+            thumbnail.style.display = "none";
+            playBtn.style.display = "none";
+            iframe.style.opacity = "1";
         });
-    }, { threshold: 0.7 });
 
-    document.querySelectorAll(".reel-container").forEach(container => {
-        observer.observe(container);
+        grid.appendChild(reelDiv);
     });
 });
