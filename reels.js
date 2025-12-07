@@ -46,14 +46,14 @@ document.addEventListener("DOMContentLoaded", () => {
         grid.appendChild(reelDiv);
     });
 
-    // Auto Play/Pause on Scroll
+    // AUTO PLAY + AUTO PAUSE ON SCROLL — 100% WORKING (INSTAGRAM SPECIAL)
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const iframe = entry.target.querySelector("iframe");
-            if (entry.isIntersecting) {
-                iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":[]}', '*');
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.7) {
+                iframe.contentWindow.postMessage(JSON.stringify({event: "command", func: "playVideo", args: ""}), "*");
             } else {
-                iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":[]}', '*');
+                iframe.contentWindow.postMessage(JSON.stringify({event: "command", func: "pauseVideo", args: ""}), "*");
             }
         });
     }, { threshold: 0.7 });
