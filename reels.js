@@ -8,6 +8,13 @@ const myReels = [
     { link: "https://www.instagram.com/reel/DR7PdsdjCT2/", description: "Car reel – cinematic shots" },
     { link: "https://www.instagram.com/reel/DRZh1AuDF9C/", description: "Portrait transition masterclass" },
     { link: "https://www.instagram.com/reel/DR7PdsdjCT2/", description: "Premium client car edit" }
+    // ===============================================
+    // NAYA REEL ADD KARNA HO TOH BAS YE FORMAT MEIN ADD KARO
+    // {
+    //     link: "https://www.instagram.com/reel/XXXXXX/",
+    //     description: "Yahan apna description likh do"
+    // },
+    // ===============================================
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -17,40 +24,41 @@ document.addEventListener("DOMContentLoaded", () => {
         const reelDiv = document.createElement("div");
         reelDiv.className = "reel-card";
 
-        // YE NAYA TRICK HAI — 100% WORKING THUMBNAIL
-        const reelId = item.link.split("/reel/")[1].split("/")[0];
-        const thumbnailUrl = `https://www.instagram.com/p/${reelId}/media/?size=l`;
-
         reelDiv.innerHTML = `
-            <div class="reel-wrapper">
-                <img src="${thumbnailUrl}" class="reel-thumbnail" alt="Reel thumbnail" onerror="this.style.display='none'">
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
-                <div class="instagram-embed-container">
-                    <iframe 
-                        class="instagram-embed" 
-                        src="${item.link}embed/" 
-                        frameborder="0" 
-                        allowfullscreen 
-                        loading="lazy">
-                    </iframe>
-                </div>
+            <div class="reel-container">
+                <iframe 
+                    class="instagram-embed"
+                    src="${item.link}embed/captioned/"
+                    frameborder="0"
+                    allowfullscreen
+                    loading="lazy"
+                    allow="autoplay; encrypted-media"
+                    scrolling="no">
+                </iframe>
+            </div>
+            <div class="reel-overlay">
+                <i class="fab fa-instagram"></i>
+                <span>View on Instagram</span>
             </div>
             <p class="reel-description">${item.description}</p>
         `;
 
-        // Click pe play
-        reelDiv.addEventListener("click", () => {
-            const iframe = reelDiv.querySelector(".instagram-embed");
-            const thumbnail = reelDiv.querySelector(".reel-thumbnail");
-            const playBtn = reelDiv.querySelector(".play-button");
-            
-            thumbnail.style.display = "none";
-            playBtn.style.display = "none";
-            iframe.style.opacity = "1";
-        });
-
         grid.appendChild(reelDiv);
+    });
+
+    // Auto Play/Pause on Scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const iframe = entry.target.querySelector("iframe");
+            if (entry.isIntersecting) {
+                iframe.src = iframe.src;
+            } else {
+                iframe.src = iframe.src;
+            }
+        });
+    }, { threshold: 0.7 });
+
+    document.querySelectorAll(".reel-container").forEach(container => {
+        observer.observe(container);
     });
 });
