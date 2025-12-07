@@ -1,40 +1,28 @@
 const myReels = [
-    {
-        type: "instagram",
-        link: "https://www.instagram.com/reel/DRbFmm8CPVf/",
-        description: "High-energy fashion reel with trending transition"
-    },
-    {
-        type: "instagram",
-        link: "https://www.instagram.com/reel/DRrYc7qjc7t/",
-        description: "Food reel with smooth cuts & trending sound"
-    },
-    {
-        type: "instagram",
-        link: "https://www.instagram.com/reel/DQ0-2zvDDoi/",
-        description: "Client testimonial reel – went viral in 24 hours"
-    }
-    // aur jitne chahiye add karte jao
+    "https://www.instagram.com/reel/DRbFmm8CPVf/",
+    "https://www.instagram.com/reel/DRrYc7qjc7t/",
+    "https://www.instagram.com/reel/DQ0-2zvDDoi/",
+    "https://www.instagram.com/reel/DRrYc7qjc7t/",
+    "https://www.instagram.com/reel/DQ0-2zvDDoi/"
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector("#portfolio .grid");
 
-    myReels.forEach(item => {
-        const div = document.createElement("div");
-        div.className = "reel-card";
+    myReels.forEach(link => {
+        const reelDiv = document.createElement("div");
+        reelDiv.className = "reel";
 
-        div.innerHTML = `
-            <blockquote class="instagram-media" data-instgrm-permalink="${item.link}" data-instgrm-version="14" style="max-width:540px; width:100%; margin:20px auto;">
-                <a href="${item.link}">Instagram</a>
-            </blockquote>
-            <p class="reel-caption">${item.description}</p>
+        reelDiv.innerHTML = `
+            <iframe 
+                src="${link}embed/captioned/" 
+                class="instagram-reel"
+                frameborder="0" 
+                allowfullscreen
+                loading="lazy">
+            </iframe>
         `;
 
-        grid.appendChild(div);
+        grid.appendChild(reelDiv);
     });
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> b9f08a5a0544ad20f510d09aa99be7c339360366
