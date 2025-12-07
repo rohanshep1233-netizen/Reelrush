@@ -308,3 +308,21 @@ h2 {
     border: none;
     border-radius: 28px;
 }
+.black-fallback {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.black-fallback::before {
+    content: "Play";
+    font-size: 70px;
+    opacity: 0.7;
+}
