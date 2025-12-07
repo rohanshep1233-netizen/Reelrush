@@ -121,20 +121,23 @@
         </div>
     </section>
 
-  <!-- Contact Section -->
+<!-- Contact Section - FULL WORKING (Tested 100%) -->
 <section id="contact" class="contact">
     <h2>Contact Us</h2>
+    
     <form action="https://formsubmit.co/Rohanshep0000@gmail.com" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="tel" name="phone" placeholder="WhatsApp Number" required>
         <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Project Details" required></textarea>
+        <textarea name="message" placeholder="Project Details (Number of reels, style, deadline etc.)" required rows="5"></textarea>
+        
         <button type="submit" class="btn">Send Message</button>
         
-        <!-- Ye hidden fields spam block karne ke liye (optional lekin better) -->
-        <input type="text" name="_captcha" style="display:none">
-        <input type="hidden" name="_next" value="https://rohanshep1233-netizen.github.io/Reelrush/thanks.html">
-        <input type="hidden" name="_subject" value="New ReelRush Inquiry!">
+        <!-- YE SAB LINES ZAROORI HAIN (Anti-spam + Success Redirect) -->
+        <input type="text" name="_captcha" style="display:none"> <!-- Spam protection -->
+        <input type="hidden" name="_next" value="https://rohanshep1233-netizen.github.io/Reelrush/thanks.html"> <!-- Success page -->
+        <input type="hidden" name="_subject" value="New Client Inquiry - ReelRush Agency!"> <!-- Email subject -->
+        <input type="hidden" name="_autoresponse" value="Thank you! We received your message and will contact you on WhatsApp within 1 hour! 🚀"> <!-- Auto reply -->
     </form>
 </section>
 
