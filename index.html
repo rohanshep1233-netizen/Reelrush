@@ -121,25 +121,42 @@
         </div>
     </section>
 
-<!-- Contact Section - 100% WORKING (No Loading Hang) -->
+<!-- Contact Section - FORM + DIRECT WHATSAPP WITH ALL DETAILS -->
 <section id="contact" class="contact">
     <h2>Contact Us</h2>
     
-    <form action="https://formsubmit.co/Rohanshep0000@gmail.com" method="POST" target="_blank">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="tel" name="phone" placeholder="WhatsApp Number" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Project Details (Number of reels, style, deadline etc.)" required rows="5"></textarea>
+    <form id="whatsapp-form" style="max-width:600px; margin:0 auto;">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="tel" id="phone" placeholder="WhatsApp Number" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Project Details (Number of reels, style, deadline etc.)" required rows="5"></textarea>
         
-        <button type="submit" class="btn">Send Message</button>
-        
-        <!-- YE SAB LINES DAAL DO — TABHI 100% KAAM KAREGA -->
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://rohanshep1233-netizen.github.io/Reelrush/thanks.html">
-        <input type="hidden" name="_subject" value="New Client - ReelRush Agency">
-        <input type="hidden" name="_autoresponse" value="Thank you! We received your message and will reply on WhatsApp within 1 hour!">
+        <button type="submit" class="btn">Send on WhatsApp</button>
     </form>
 </section>
+
+<script>
+// Form submit → WhatsApp pe message bhejega
+document.getElementById("whatsapp-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const email = document.getElementById("email").value;
+    const message = document.get |
+    const text = `Hello ReelRush Team!%0A%0A` +
+                 `Name: ${name}%0A` +
+                 `WhatsApp: ${phone}%0A` +
+                 `Email: ${email}%0A%0A` +
+                 `Message:%0A${message}%0A%0AThank you!`;
+    
+    const whatsappURL = `https://wa.me/918698245050?text=${text}`;
+    window.open(whatsappURL, '_blank');
+    
+    // Optional: Form clear kar do
+    document.getElementById("whatsapp-form").reset();
+});
+</script>
 <!-- Floating WhatsApp Icon -->
 <a href="https://wa.me/918698245050?text=Hello%20ReelRush%20Team%2C%0A%0AI%20am%20interested%20in%20your%20professional%20Reels%20editing%20services.%0ACan%20we%20discuss%20pricing%20and%20packages%3F%0A%0AThank%20you%21" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
