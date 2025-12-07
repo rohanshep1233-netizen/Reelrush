@@ -17,38 +17,22 @@ document.addEventListener("DOMContentLoaded", () => {
         const reelDiv = document.createElement("div");
         reelDiv.className = "reel-card";
 
-        // YE FIXED TRICK HAI — SAB REELS KA THUMBNAIL DIKHEGA
-        const reelId = item.link.split("/reel/")[1].split("/")[0];
-        const thumbnailUrl = `https://www.instagram.com/reel/${reelId}/media/?size=l`;
-
+        // Direct Instagram embed — thumbnail + card + click pe full reel
         reelDiv.innerHTML = `
-            <div class="reel-wrapper">
-                <img src="${thumbnailUrl}" class="reel-thumbnail" alt="Reel thumbnail" onerror="this.src='fallback-thumbnail.jpg';"> <!-- Fallback agar thumbnail block ho -->
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
-                <iframe 
-                    class="instagram-embed" 
-                    src="${item.link}embed/" 
-                    frameborder="0" 
-                    allowfullscreen 
-                    loading="lazy">
-                </iframe>
-            </div>
+            <blockquote class="instagram-media" data-instgrm-permalink="${item.link}" data-instgrm-version="14" style="max-width:540px; width:100%; margin:20px auto;">
+                <a href="${item.link}">Instagram</a>
+            </blockquote>
             <p class="reel-description">${item.description}</p>
         `;
 
-        // Click pe play
-        reelDiv.addEventListener("click", () => {
-            const iframe = reelDiv.querySelector(".instagram-embed");
-            const thumbnail = reelDiv.querySelector(".reel-thumbnail");
-            const playBtn = reelDiv.querySelector(".play-button");
-            
-            thumbnail.style.display = "none";
-            playBtn.style.display = "none";
-            iframe.style.opacity = "1";
-        });
-
         grid.appendChild(reelDiv);
+    });
+
+    // Click pe full reel open karne ke liye (new window mein)
+    document.querySelectorAll(".instagram-media a").forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.open(link.href, '_blank'); // Full reel new tab mein open
+        });
     });
 });
