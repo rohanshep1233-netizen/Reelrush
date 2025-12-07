@@ -428,3 +428,12 @@ h2 {
     .reel-card { max-width: 340px; margin: 20px auto; }
     .reel-overlay { font-size: 14px; padding: 12px 20px; }
 }
+.reel-description {
+    margin-top: 16px;
+    font-size: 15px;
+    color: #ff5588;
+    text-align: center;
+    font-weight: 600;
+    padding: 0 20px;
+    line-height: 1.5;
+}
