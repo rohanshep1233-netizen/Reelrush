@@ -206,97 +206,8 @@ h2 {
     h2 { font-size: 38px; }
     .reel iframe { height: 400px; }
 }
-/* Instagram jaisa bilkul perfect card design */
-.instagram-reel {
-    width: 100%;
-    height: 600px;
-    border-radius: 20px;
-    border: none;
-    box-shadow: 0 10px 30px rgba(255, 0, 85, 0.2);
-}
 
-.reel {
-    background: transparent !important;
-    padding: 0 !important;
-    border-radius: 25px;
-    overflow: hidden;
-    transition: all 0.4s;
-}
-
-.reel:hover {
-    transform: translateY(-10px);
-}
-
-/* Mobile ke liye perfect */
-@media (max-width: 768px) {
-    .instagram-reel {
-        height: 500px;
-    }
-}
-.reel-caption {
-    margin-top: 12px;
-    font-size: 15px;
-    color: #ff5588;
-    text-align: center;
-    font-weight: 500;
-    padding: 0 15px;
-    line-height: 1.5;
-}
-/* SAB REELS KA SAME CARD DESIGN */
-.reel-card {
-    max-width: 420px;
-    width: 100%;
-    margin: 30px auto;
-    border-radius: 28px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(255, 0, 85, 0.25);
-    background: #000;
-    transition: transform 0.4s;
-}
-.reel-card:hover {
-    transform: translateY(-12px);
-}
-
-/* Instagram embed ko perfect Instagram ratio */
-.instagram-media {
-    width: 100% !important;
-    aspect-ratio: 9 / 16 !important;   /* exact Instagram reel ratio */
-    border-radius: 28px !important;
-    overflow: hidden !important;
-}
-
-/* Local video ko bhi exact same ratio */
-.video-wrapper {
-    position: relative;
-    width: 100%;
-    padding-top: 177.78%; /* 9:16 ratio (100 / 9 * 16) */
-    background: #000;
-    border-radius: 28px;
-    overflow: hidden;
-}
-.video-wrapper video {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 28px;
-}
-
-/* Caption */
-.reel-caption {
-    margin-top: 14px;
-    font-size: 15px;
-    color: #ff5588;
-    text-align: center;
-    font-weight: 500;
-    padding: 0 10px;
-}
-/* ============================================= */
-/* REELRUSH - FINAL PORTFOLIO CARD DESIGN        */
-/* Instagram + Local Videos = SAME LOOK          */
-/* ============================================= */
-
+/* Optimized Reels Styles */
 .reel-card {
     max-width: 420px;
     width: 100%;
@@ -312,122 +223,34 @@ h2 {
     box-shadow: 0 25px 50px rgba(255, 0, 85, 0.35);
 }
 
-/* Instagram embed ko perfect 9:16 ratio */
-.instagram-media {
-    width: 100% !important;
-    aspect-ratio: 9 / 16 !important;
-    border-radius: 28px !important;
-    overflow: hidden !important;
-    display: block !important;
-}
+.instagram-media { width: 100% !important; aspect-ratio: 9 / 16 !important; border-radius: 28px !important; overflow: hidden !important; }
 
-/* Local video ko bilkul same Instagram card jaisa */
 .video-wrapper {
     position: relative;
     width: 100%;
-    padding-top: 177.78%; /* 9:16 ratio = 100/9 × 16 */
+    padding-top: 177.78%; /* 9:16 ratio */
     background: #000;
     border-radius: 28px;
     overflow: hidden;
 }
 .video-wrapper video {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 28px;
 }
 
-/* Description text */
 .reel-caption {
-    margin-top: 16px;
+    margin-top: 14px;
     font-size: 15px;
     color: #ff5588;
     text-align: center;
     font-weight: 500;
-    padding: 0 15px;
-    line-height: 1.5;
-    opacity: 0.9;
+    padding: 0 10px;
 }
 
-/* Mobile pe bhi perfect */
-@media (max-width: 768px) {
-    .reel-card {
-        max-width: 360px;
-        margin: 25px auto;
-    }
-    .reel-caption {
-        font-size: 14px;
-    }
-}
-.reel-card {
-    position: relative;
-    max-width: 380px;
-    width: 100%;
-    margin: 30px auto;
-    border-radius: 28px;
-    overflow: hidden;
-    box-shadow: 0 20px 50px rgba(255, 0, 85, 0.3);
-    transition: all 0.4s ease;
-    background: #000;
-}
-
-.reel-card:hover {
-    transform: translateY(-15px) scale(1.02);
-    box-shadow: 0 30px 70px rgba(255, 0, 85, 0.5);
-}
-
-.reel-container {
-    position: relative;
-    width: 100%;
-    padding-top: 177.78%; /* Perfect 9:16 Instagram Ratio */
-    background: #000;
-}
-
-.instagram-embed {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 28px;
-}
-
-.reel-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0,0,0,0.7);
-    color: white;
-    padding: 15px 25px;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 600;
-    backdrop-filter: blur(10px);
-    opacity: 0;
-    transition: opacity 0.4s;
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.reel-card:hover .reel-overlay {
-    opacity: 1;
-}
-
-.reel-overlay i {
-    font-size: 24px;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .reel-card { max-width: 340px; margin: 20px auto; }
-    .reel-overlay { font-size: 14px; padding: 12px 20px; }
-}
 .reel-description {
     margin-top: 16px;
     font-size: 15px;
@@ -436,25 +259,6 @@ h2 {
     font-weight: 600;
     padding: 0 20px;
     line-height: 1.5;
-}
-.reel-wrapper {
-    position: relative;
-    width: 100%;
-    padding-top: 177.78%; /* 9:16 ratio */
-    border-radius: 28px;
-    overflow: hidden;
-    background: #000;
-    cursor: pointer;
-    box-shadow: 0 15px 40px rgba(255, 0, 85, 0.3);
-}
-
-.reel-thumbnail {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 28px;
 }
 
 .play-button {
@@ -489,9 +293,6 @@ h2 {
     transition: opacity 0.5s;
 }
 
-.reel-card:hover {
-    transform: translateY(-15px);
-}
 .instagram-embed-container {
     position: absolute;
     top: 0; left: 0;
@@ -503,29 +304,6 @@ h2 {
 
 .instagram-embed {
     width: 100%;
-    .instagram-media {
-    width: 100% !important;
-    aspect-ratio: 9/16 !important;
-    border-radius: 28px !important;
-    overflow: hidden !important;
-    box-shadow: 0 15px 40px rgba(255, 0, 85, 0.3);
-    background: #000;
-}
-
-.reel-description {
-    margin-top: 16px;
-    font-size: 15px;
-    color: #ff5588;
-    text-align: center;
-    font-weight: 600;
-    padding: 0 20px;
-    line-height: 1.5;
-}
-
-.reel-card:hover .instagram-media {
-    transform: translateY(-5px);
-    box-shadow: 0 25px 50px rgba(255, 0, 85, 0.5);
-}
     height: 100%;
     border: none;
     border-radius: 28px;
