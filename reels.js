@@ -1,11 +1,10 @@
 const myReels = [
-    { link: "https://www.instagram.com/reel/DRrYc7qjc7t/", description: "Fashion reel with trending transition" },
-    { link: "https://www.instagram.com/reel/DRgVzVECHyn/", description: "Food reel – smooth cuts & viral sound" },
-    { link: "https://www.instagram.com/reel/DRmagTrE-th/", description: "Client testimonial reel – 1M+ views" },
-    { link: "https://www.instagram.com/reel/DRbFmm8CPVf/", description: "High energy transition reel" },
-    { link: "https://www.instagram.com/reel/DRZh1AuDF9C/", description: "Cinematic portrait edit" },
-    { link: "https://www.instagram.com/reel/DR7ENcTCKcu/", description: "Nature vibe with trending audio" },
-    { link: "https://www.instagram.com/reel/DR7PdsdjCT2/", description: "Car reel – cinematic shots" }
+    { link: "https://www.instagram.com/reel/DRrYc7qjc7t/", description: "Basic Editing Example" },
+    { link: "https://www.instagram.com/reel/DRgVzVECHyn/", description: "Basic Editing Example" },
+    { link: "https://www.instagram.com/reel/DRmagTrE-th/", description: "Basic Editing Example" },
+    { link: "https://www.instagram.com/reel/DRbFmm8CPVf/", description: "Basic Editing Example" },
+    { link: "https://www.instagram.com/reel/DRZh1AuDF9C/", description: "Basic Editing Example" },
+    { link: "https://www.instagram.com/reel/DR7ENcTCKcu/", description: "Basic Editing Example" },
     // baaki add kar lena
 ];
 
